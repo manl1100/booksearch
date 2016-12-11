@@ -8,7 +8,11 @@ RUN set -x && apt-get update && DEBIAN_FRONTEND=noninteractive \
         python3-pip \
         vim \
         curl \
-        git
+        git \
+        npm
 
 RUN pip3 install \
       Flask==0.10.1
+
+ADD . /code
+CMD ["npm", "start"]
