@@ -1,18 +1,11 @@
-FROM debian:jessie
+FROM node:alpine
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
-RUN set -x && apt-get update && DEBIAN_FRONTEND=noninteractive \
-      apt-get install -y --no-install-recommends \
-        python3 \
-        ca-certificates \
-        python3-pip \
-        vim \
-        curl \
-        git \
-        npm
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-RUN pip3 install \
-      Flask==0.10.1
+COPY package.json /usr/src/app/
+RUN npm install
 
-ADD . /code
+COPY . /usr/src/app
+
 CMD ["npm", "start"]

@@ -5,7 +5,7 @@ services:
   web:
     image: bk_web
     ports:
-     - "5000:5000"
+     - "3000:3000"
 
   redis:
     image: "redis:alpine"
