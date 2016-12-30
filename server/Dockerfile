@@ -12,7 +12,9 @@ RUN set -x && apt-get update && DEBIAN_FRONTEND=noninteractive \
         npm
 
 RUN pip3 install \
-      Flask==0.10.1
+      Flask==0.10.1 \
+      sqlalchemy==1.1.4 
+
 
 ADD . /code
 WORKDIR /code
