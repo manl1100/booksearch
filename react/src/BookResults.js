@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Grid, Image } from 'semantic-ui-react'
+import './BookResults.css';
 
 class BookResults extends Component {
 
@@ -36,16 +38,18 @@ class BookResults extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-6 col-md-3">
+      <div className="book-grid">
+        <Grid doubling columns={5}>
+
           {this.state.books.map(function(book) {
-            return (
-              <a href="#" className="thumbnail">
-                <img src={book.url} alt=""/>
-              </a>);
+              return (
+                <Grid.Column>
+                  <Image src={book.img_url} alt=""/>
+                </Grid.Column>
+              )
           })}
-        </div> 
-      </div>);
+        </Grid>
+      </div>)
   }
 }
 
