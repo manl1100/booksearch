@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Input, Menu } from 'semantic-ui-react'
+import './BookMenu.css';
 
 class BookMenu extends Component {
   state = {}
@@ -10,7 +11,7 @@ class BookMenu extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu>
+      <Menu borderless="true" size="large">
 
         <Menu.Item
           name='home'
@@ -33,12 +34,20 @@ class BookMenu extends Component {
           Trending
         </Menu.Item>
 
-        <Menu.Item
-          name='upcomingEvents'
-          active={activeItem === 'upcomingEvents'}
-          onClick={this.handleItemClick}>
-          Other Stuff
-        </Menu.Item>
+        <Menu.Menu position='right'>
+
+          <Menu.Item>
+            <Input className='search' icon='search' placeholder='Search...' />
+          </Menu.Item>
+
+          <Menu.Item name='signup' active={activeItem === 'signup'} onClick={this.handleItemClick}>
+            Sign Up
+          </Menu.Item>
+
+          <Menu.Item name='help' active={activeItem === 'help'} onClick={this.handleItemClick}>
+            Help
+          </Menu.Item>
+       </Menu.Menu>
       </Menu>
     )
   }

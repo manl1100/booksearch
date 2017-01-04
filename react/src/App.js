@@ -10,8 +10,9 @@ class App extends Component {
     return (
       <div className="App">
         <BookMenu />
-        <SearchBar />
-        <BookResults />
+        <div className="content">
+          <BookResults />
+        </div>
       </div>
     );
   }
